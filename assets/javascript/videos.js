@@ -2,7 +2,7 @@
 async function fetchChannelData() {
     try {
         // Assume que videos.json está no mesmo diretório
-        const response = await fetch('/assets/json/videos.json');
+        const response = await fetch('assets/json/videos.json');
         if (!response.ok) {
             throw new Error(`Erro ao carregar o JSON: ${response.status} ${response.statusText}`);
         }
