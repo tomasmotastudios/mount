@@ -5,7 +5,7 @@ document.querySelectorAll('.year').forEach(el => {
 
 //
 // Header
-fetch("assets/header/index.html")
+fetch("a/h/index.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("header-mount").innerHTML = data;

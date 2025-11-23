@@ -1,0 +1,144 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+}
+h1 {
+    color: #ff0000;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.info-note {
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* 1. Container Principal (PC: 4 em linha) */
+.all-channels-container {
+    display: flex; 
+    flex-wrap: nowrap; 
+    gap: 0;
+    padding: 20px 0; 
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Seção de cada canal (Divisórias Verticais no PC) */
+.channel-section {
+    /* Garante 25% de largura para cada um, impedindo que cresçam ou encolham */
+    flex: 0 0 25%; 
+    min-width: 200px; 
+    
+    background-color: transparent; 
+    overflow: hidden;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    
+    /* Divisória: Borda no lado direito */
+    border-right: 1px solid #333333; 
+    padding: 0 10px; 
+}
+
+/* Remove a borda do último canal */
+.channel-section:last-child {
+    border-right: none;
+}
+
+.channel-section:hover {
+    transform: translateY(-5px);
+}
+
+.channel-section h2 {
+    color: #ffffff;
+    font-size: 1em;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+    background-color: #1e1e1e;
+    border-bottom: 2px solid #ff0000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0; 
+}
+
+/* Container do vídeo - Adiciona um padding para afastar o conteúdo da divisória */
+.video-container {
+    flex-grow: 1;
+    display: flex; 
+    flex-direction: column;
+    padding: 10px 0; 
+}
+
+/* Item de vídeo */
+.video-item {
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+}
+
+.video-item iframe {
+    width: 100%;
+    /* Mantém a proporção 16:9, garantindo que o vídeo não fique achatado ou esticado */
+    aspect-ratio: 16 / 9; 
+    border: none;
+    display: block; 
+}
+
+.video-item p {
+    padding: 10px 5px; 
+    margin: 0;
+    font-size: 0.8em;
+    text-align: center;
+    height: 2.4em; 
+    line-height: 1.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}
+
+/* 3. Comportamento no Mobile (telas menores que 768px) */
+@media (max-width: 768px) {
+    .all-channels-container {
+        flex-direction: column; 
+        padding: 10px;
+    }
+    
+    .channel-section {
+        /* Ocupa a largura total (100%) da tela no mobile */
+        flex: 0 0 100%; 
+        margin-bottom: 15px;
+        min-width: unset;
+        
+        /* Remove a divisória vertical do PC */
+        border-right: none; 
+        /* Adiciona uma divisória horizontal */
+        border-bottom: 1px solid #333333; 
+        padding: 0; 
+    }
+    
+    /* Remove a borda horizontal do último canal no mobile */
+    .channel-section:last-child {
+        border-bottom: none;
+    }
+    
+    .channel-section h2 {
+        padding: 10px; 
+    }
+    
+    .video-container {
+        padding: 10px; 
+    }
+    
+    /* No mobile, o vídeo ocupa 100% da largura, e o aspect-ratio garante
+       que a altura se ajuste, mantendo a proporção 16:9. Isso significa que,
+       visualmente, a proporção é mantida, mas o tamanho total do vídeo é o
+       maior possível para a tela do celular. */
+}

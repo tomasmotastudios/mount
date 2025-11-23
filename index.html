@@ -3,22 +3,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mount</title>
-    <link rel="stylesheet" href="assets/css/videos.css">
+    <link rel="icon" href="a/i/mountph.jpg" type="image/jpg">
+    <link rel="stylesheet" href="a/css/videos.css">
+    <link rel="stylesheet" href="a/css/stt.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="assets/javascript/script.js"></script>
+    <script src="a/js/script.js"></script>
 </head>
 <body>
 
     <section id="fullscreen-hero" class="h-screen w-full flex flex-col relative p-4"
-        style="background-image: url('upload/background.jpg'); background-size: cover; background-position: center;">
+        style="background-image: url('a/i/mountbg.jpg'); background-size: cover; background-position: center;">
 
         <div class="absolute inset-0 bg-black opacity-80"></div>
 
-        <div id="header-mount"></div>
+        <!-- <div id="header-mount"></div> -->
 
         <div class="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center justify-center flex-grow">
-            <img src="upload/mount-1.jpg" alt="Tomás Mota"
+            <!-- <img src="a/i/mountph.jpg" alt="Tomás Mota"
                 class="w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto mb-6 object-cover border-4 border-blue-500 shadow-xl">
 
             <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">Mount
@@ -27,48 +29,155 @@
                 
             </p>
             <div class="mt-4">
-            </div>
+            </div> -->
         </div>
 
         <div class="w-full relative z-10 p-4">
+            
+                <svg class="w-8 h-8 text-white-500 animate-bounce mx-auto" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+
             <div class="flex flex-col items-center justify-end">
 
                 <div class="flex space-x-4 mb-4">
-                    <a href="link/instagram" target="_blank" class="text-gray-600 hover:text-pink-600 transition duration-300">
+                    <a href="r/instagram" target="_blank"
+                        class="text-white hover:text-pink-600 transition duration-300">
                         <i class="fab fa-instagram text-2xl"></i>
                     </a>
-                    <a href="link/twitter" target="_blank" class="text-gray-600 hover:text-blue-400 transition duration-300">
+                    <a href="r/x" target="_blank" class="text-white hover:text-black transition duration-300">
                         <i class="fab fa-x-twitter text-2xl"></i>
                     </a>
-                    <a href="link/tiktok" target="_blank" class="text-gray-600 hover:text-gray-200 transition duration-300">
+                    <a href="r/tiktok" target="_blank"
+                        class="text-white hover:text-black transition duration-300">
                         <i class="fab fa-tiktok text-2xl"></i>
                     </a>
-                    <a href="link/youtube" target="_blank" class="text-gray-600 hover:text-red-600 transition duration-300">
+                    <a href="r/youtube" target="_blank"
+                        class="text-white hover:text-red-600 transition duration-300">
                         <i class="fab fa-youtube text-2xl"></i>
                     </a>
-                    <a href="link/twitch" target="_blank" class="text-gray-600 hover:text-purple-600 transition duration-300">
+                    <a href="r/twitch" target="_blank"
+                        class="text-white hover:text-purple-600 transition duration-300">
                         <i class="fab fa-twitch text-2xl"></i>
                     </a>
-                    <a href="link/discord" target="_blank" class="text-gray-600 hover:text-blue-400 transition duration-300">
+                    <a href="r/discord" target="_blank"
+                        class="text-white hover:text-blue-400 transition duration-300">
                         <i class="fab fa-discord text-2xl"></i>
                     </a>
                 </div>
 
                 <footer class="w-full py-2">
                     <div class="container mx-auto text-center">
-                        <p class="text-xs text-gray-500 tracking-wider">
-                            &copy; 2019 - <span class="year"></span> Mount. <br> <a href="https://tomasmotastudios.github.io" target="_blank"> &copy; & ℗ 2024 - <span class="year"></span> Tomás Mota Unipessoal, Lda. All Rights Reserved.</a>
+                        <p class="text-xs text-white hover:text-gray-400 transition duration-300 tracking-wider ">
+                            <a href="https://makyneta.github.io" target="_blank"> &copy; & ℗ <span class="year"></span>
+                                Makyneta Studios, Lda. Todos os direitos reservados.</a>
                         </p>
                     </div>
                 </footer>
             </div>
         </div>
     </section>
+
+    <div class="all-channels-container">
+        <div id="mountzera" class="channel-section">
+            <h2>@mountzera</h2>
+            <div class="video-container"></div>
+        </div>
+
+        <div id="mountlives" class="channel-section">
+            <h2>@mountlives</h2>
+            <div class="video-container"></div>
+        </div>
+
+        <div id="mountcortes" class="channel-section">
+            <h2>@mountcortes</h2>
+            <div class="video-container"></div>
+        </div>
+
+        <div id="mountvods" class="channel-section">
+            <h2>@mountvods</h2>
+            <div class="video-container"></div>
+        </div>
+
+    </div>
+
+    <a id="scroll-to-top" title="Go to Top"></a>
+    <script src="/a/js/stt.js"></script>
+
 </body>
+
 <script>
     // Atualiza todos os elementos com a classe 'year'
     document.querySelectorAll('.year').forEach(el => {
         el.textContent = new Date().getFullYear();
     });
+
+    // Função para carregar o JSON (dados dos vídeos)
+    async function fetchChannelData() {
+        try {
+            // Assume que videos.json está no mesmo diretório
+            const response = await fetch('a/j/vd.json');
+            if (!response.ok) {
+                throw new Error(`Erro ao carregar o JSON: ${response.status} ${response.statusText}`);
+            }
+            return response.json();
+        } catch (error) {
+            console.error("Não foi possível carregar os dados dos vídeos.", error);
+            // Retorna dados vazios ou uma mensagem de erro para exibição
+            return [];
+        }
+    }
+
+    /**
+     * Cria e insere o HTML do vídeo no container correto.
+     */
+    function createVideoElement(videoId, title, container, isSecondMountZera) {
+        const videoUrl = `https://www.youtube.com/embed/${videoId}`;
+
+        const videoItem = document.createElement('div');
+        videoItem.classList.add('video-item');
+
+        if (isSecondMountZera) {
+            // Classe usada para identificar e ocultar o segundo vídeo no mobile
+            videoItem.classList.add('hide-on-mobile');
+        }
+
+        videoItem.innerHTML = `
+        <iframe 
+            src="${videoUrl}" 
+            title="${title}" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    `;
+
+        container.appendChild(videoItem);
+    }
+
+    /**
+     * Renderiza todos os vídeos com base nos dados do JSON.
+     */
+    async function renderVideos() {
+        const channelsData = await fetchChannelData();
+
+        channelsData.forEach(channel => {
+            const container = document.querySelector(`#${channel.id} .video-container`);
+            const titleElement = document.querySelector(`#${channel.id} h2`);
+
+            if (!container) return; // Garante que o container HTML existe
+
+            channel.videos.forEach((video, index) => {
+                // Verifica se é o segundo vídeo do @mountzera
+                const isSecondMountZera = (channel.id === 'mountzera' && index === 1);
+                createVideoElement(video.id, video.title, container, isSecondMountZera);
+            });
+        });
+    }
+
+    // Inicia a renderização dos vídeos ao carregar a página
+    document.addEventListener('DOMContentLoaded', renderVideos);
+
 </script>
+
 </html>
